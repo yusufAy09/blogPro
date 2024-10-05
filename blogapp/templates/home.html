@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+{% block content %}
+<h1 class="animated ">Welcome to Our Blog Submission Platform</h1>
+<div class="container">
+  <h2 class="my-5 text-light">Latest Posts</h2>
+    <div class="card-container">
+      {% for i in blog %}
+      <div class="card" data-aos="flip-left"data-aos-easing="ease-out-cubic"data-aos-duration="2000">
+        <div class="card-body">
+          <h5 class="card-title text-dark">{{ i.title }}</h5>
+          <p class="card-text text-dark">{{ i.content }}</p>
+          {%if i.image%}
+          <img src="{{ i.image.url }}" alt="{{ post.title }}">
+          {%endif%}
+        </div>
+      </div>
+      {%endfor%}
+    </div>
+  </div>
+{% endblock %}
